@@ -21,6 +21,7 @@ def _run_one(ref: InstanceRef, solver_name: str, time_limit: Optional[float]):
     if not solver.supports(inst):
         return None
     outcome = solver.solve(inst, time_limit=time_limit, path=ref.path)
+    points = [list(p) for p in outcome.points] if outcome.points else None
     return Result(
         dataset=ref.dataset,
         alpha=ref.alpha,
@@ -33,6 +34,9 @@ def _run_one(ref: InstanceRef, solver_name: str, time_limit: Optional[float]):
         threads=outcome.threads,
         time_limit_s=time_limit,
         source="run",
+        objective=solver.objective,
+        objectives=outcome.objectives,
+        points=points,
         timestamp=datetime.now(timezone.utc).isoformat(timespec="seconds"),
         extra=outcome.extra,
     )

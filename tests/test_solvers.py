@@ -57,3 +57,16 @@ def test_jin_tanaka_unrestricted_finds_optimum():
     outcome = solver.solve(_instance(INSTANCE_TEXT), time_limit=30)
     assert outcome.status == STATUS_OPTIMAL
     assert outcome.value == 7
+
+
+@pytest.mark.skipif(
+    not (BIN_DIR / "jin_tanaka_restricted_distinct_jt23").exists(),
+    reason="native solver not built (run scripts/build_solvers.sh)",
+)
+def test_jin_tanaka_restricted_finds_optimum():
+    solver = build_registry()["jin_tanaka_restricted_distinct_jt23"]
+    assert solver.supports(_instance(INSTANCE_TEXT))
+    assert not solver.supports(_instance(DUPLICATE_TEXT))
+    outcome = solver.solve(_instance(INSTANCE_TEXT), time_limit=30)
+    assert outcome.status == STATUS_OPTIMAL
+    assert outcome.value == 7

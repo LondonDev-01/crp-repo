@@ -6,7 +6,7 @@ import json
 import os
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
-from typing import Dict, Iterable, List, Optional, Tuple
+from typing import Dict, Iterable, List, Optional, Sequence, Tuple
 
 STATUS_OPTIMAL = "optimal"
 STATUS_BEST = "best"
@@ -31,11 +31,22 @@ class Result:
     alpha: Optional[str] = None
     source: str = "run"
     timestamp: Optional[str] = None
+    objective: str = "relocations"
+    objectives: Optional[List[str]] = None
+    points: Optional[List[List[float]]] = None
     extra: Dict = field(default_factory=dict)
 
     @property
     def key(self) -> ResultKey:
         return (self.dataset, self.alpha, self.klass, self.instance, self.solver)
+
+    @property
+    def is_multi_objective(self) -> bool:
+        return bool(self.objectives)
+
+    @property
+    def front_size(self) -> int:
+        return len(self.points) if self.points else 0
 
     def to_json(self) -> str:
         return json.dumps(asdict(self), sort_keys=True)

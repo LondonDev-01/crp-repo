@@ -48,7 +48,14 @@ JIN_TANAKA_SPECS = [
     {
         "name": "jin_tanaka_unrestricted_distinct_jt23",
         "binary": "jin_tanaka_unrestricted_distinct_jt23",
-        "description": "Jin & Tanaka (2023) exact unrestricted CRP, distinct priorities",
+        "priority_kind": "any",
+        "description": "Jin & Tanaka (2023) exact unrestricted CRP, duplicate priorities",
+    },
+    {
+        "name": "jin_tanaka_restricted_distinct_jt23",
+        "binary": "jin_tanaka_restricted_distinct_jt23",
+        "priority_kind": "distinct",
+        "description": "Jin & Tanaka (2023) exact restricted CRP, distinct priorities",
     },
 ]
 
@@ -67,6 +74,7 @@ def build_registry() -> Dict[str, Solver]:
         registry[spec["name"]] = JinTanakaSolver(
             name=spec["name"],
             binary=BIN_DIR / spec["binary"],
+            priority_kind=spec["priority_kind"],
             description=spec["description"],
         )
     return registry

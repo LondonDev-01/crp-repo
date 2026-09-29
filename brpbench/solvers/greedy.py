@@ -25,6 +25,7 @@ class GreedySolver(Solver):
     name = "greedy"
     kind = "heuristic"
     priority_kind = "any"
+    description = "constructive baseline: retrieve when possible, relocate to the stack whose top leaves latest"
 
     def solve(self, inst: Instance, time_limit: Optional[float] = None, path: Optional[Path] = None) -> SolveOutcome:
         start = perf_counter()

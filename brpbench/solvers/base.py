@@ -5,7 +5,7 @@ from __future__ import annotations
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Dict, Optional
+from typing import Dict, List, Optional, Sequence, Tuple
 
 from ..instance import Instance
 
@@ -16,6 +16,8 @@ class SolveOutcome:
     status: str
     time_s: Optional[float] = None
     threads: Optional[int] = None
+    objectives: Optional[List[str]] = None
+    points: Optional[List[Tuple[float, ...]]] = None
     extra: Dict = field(default_factory=dict)
 
 
@@ -23,6 +25,9 @@ class Solver(ABC):
     name: str = "solver"
     kind: str = "exact"
     priority_kind: str = "any"
+    objective: str = "relocations"
+    objectives: Optional[List[str]] = None
+    description: str = ""
 
     def supports(self, inst: Instance) -> bool:
         if self.priority_kind == "distinct":
@@ -30,6 +35,10 @@ class Solver(ABC):
         if self.priority_kind == "duplicate":
             return not inst.distinct_priorities
         return True
+
+    @property
+    def is_multi_objective(self) -> bool:
+        return bool(self.objectives)
 
     @abstractmethod
     def solve(

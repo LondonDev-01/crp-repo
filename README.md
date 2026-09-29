@@ -56,9 +56,14 @@ Vendored from their authors (see `solvers/README.md` and each source header):
 | `tanaka_restricted_distinct_1.3` | Tanaka & Voss (2022) | restricted, distinct |
 | `tanaka_restricted_distinct_1.11` | Tanaka & Mizuno (2018) | restricted, distinct |
 | `tanaka_unrestricted_distinct_1.01` | Tanaka & Mizuno (2018) | unrestricted, distinct |
-| `jin_tanaka_unrestricted_distinct_jt23` | Jin & Tanaka (2023) | unrestricted, distinct |
+| `jin_tanaka_restricted_distinct_jt23` | Jin & Tanaka (2023) | restricted, distinct |
+| `jin_tanaka_unrestricted_distinct_jt23` | Jin & Tanaka (2023) | unrestricted, duplicate |
 | `tanaka_restricted_duplicate_1.02` | Tanaka & Takii (2016) | restricted, group |
 | `greedy` | this repo | constructive baseline (all datasets) |
+
+A full inventory of state-of-the-art algorithms (exact, heuristic, metaheuristic,
+learning, multi-objective) with integration status lives in
+[`docs/algorithms.md`](docs/algorithms.md).
 
 Build the native binaries:
 

@@ -28,3 +28,4 @@ clean:
 	$(MAKE) -C solvers/tanaka_unrestricted_distinct_1.01 clean || true
 	$(MAKE) -C solvers/tanaka_restricted_duplicate_1.02 clean || true
 	$(MAKE) -C solvers/ucrp_idbb_jt23 clean || true
+	$(MAKE) -C solvers/rcrp_idbb_jt23 clean || true

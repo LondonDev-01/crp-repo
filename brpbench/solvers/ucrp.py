@@ -57,10 +57,12 @@ class JinTanakaSolver(Solver):
         name: str,
         binary: os.PathLike | str,
         description: str = "",
+        priority_kind: str = "distinct",
     ):
         self.name = name
         self.binary = Path(binary)
         self.description = description
+        self.priority_kind = priority_kind
 
     @property
     def available(self) -> bool:
@@ -85,14 +87,10 @@ class JinTanakaSolver(Solver):
         tmp = None
         start = time.perf_counter()
         try:
-            if path is not None:
-                input_path = str(path)
-            else:
-                with tempfile.NamedTemporaryFile("w", suffix=".txt", delete=False) as fh:
-                    fh.write(self._serialize(inst))
-                    tmp = fh.name
-                input_path = tmp
-            args = [str(self.binary), "-i", input_path]
+            with tempfile.NamedTemporaryFile("w", suffix=".txt", delete=False) as fh:
+                fh.write(self._serialize(inst))
+                tmp = fh.name
+            args = [str(self.binary), "-i", tmp]
             if time_limit is not None:
                 args += ["-t", str(max(1, int(time_limit)))]
             proc = self._run(args, time_limit)

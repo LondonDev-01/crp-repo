@@ -10,10 +10,11 @@ license in the file headers.
 | `tanaka_unrestricted_distinct_1.01` | `ubrp_bb` | Tanaka & Mizuno (2018) | see headers (BSD-style) |
 | `tanaka_restricted_duplicate_1.02` | `brp_bb` | Tanaka & Takii (2016) | see headers (BSD-style) |
 | `tanaka_restricted_distinct_ip_1.0` | `rbrp_ip` | Tanaka & Voss (2022) | GPL-3.0 (needs Boost + Gurobi) |
-| `ucrp_idbb_jt23` | `main-solve` | Jin & Tanaka (2023) | GPL-3.0 |
+| `ucrp_idbb_jt23` | `main-solve` | Jin & Tanaka (2023), unrestricted duplicate | GPL-3.0 |
+| `rcrp_idbb_jt23` | `main-solve` | Jin & Tanaka (2023), restricted distinct | GPL-3.0 |
 
 Sources: <https://sites.google.com/site/shunjitanaka/brp>,
-<https://github.com/jinboszu/ucrp-idbb>
+<https://github.com/jinboszu/ucrp-idbb>, <https://github.com/jinboszu/rcrp-idbb>.
 
 ## Build notes
 

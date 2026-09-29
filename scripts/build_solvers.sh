@@ -33,6 +33,13 @@ make -C "$SRC/ucrp_idbb_jt23" clean >/dev/null 2>&1 || true
 make -C "$SRC/ucrp_idbb_jt23" main-solve
 cp "$SRC/ucrp_idbb_jt23/main-solve" "$BIN/jin_tanaka_unrestricted_distinct_jt23"
 
+# Jin & Tanaka (2023), restricted distinct, vendored from
+# github.com/jinboszu/rcrp-idbb. Same layout, separate Makefile.
+echo ">> building jin_tanaka_restricted_distinct_jt23"
+make -C "$SRC/rcrp_idbb_jt23" clean >/dev/null 2>&1 || true
+make -C "$SRC/rcrp_idbb_jt23" main-solve
+cp "$SRC/rcrp_idbb_jt23/main-solve" "$BIN/jin_tanaka_restricted_distinct_jt23"
+
 if [ -n "${GUROBI_ROOT:-}" ] && pkg-config --exists boost 2>/dev/null; then
   echo ">> building IP solver (Gurobi detected)"
   make -C "$SRC/tanaka_restricted_distinct_ip_1.0" || true
