@@ -1,0 +1,16 @@
+dataset,alpha,klass,solver,n,solved,mean_value,min_value,max_value,optimal_pct,mean_gap_pct,mean_time_s
+tanaka_dup,0.8,3-6-15,greedy,10,10,6.2,3,9,0.0,5.773809523809524,0.0003000604999215284
+tanaka_dup,0.8,3-6-15,tanaka_restricted_duplicate_1.01,10,10,5.8,3,8,100.0,0.0,0.0
+tanaka_dup,0.8,3-7-18,greedy,10,10,7.5,6,10,0.0,14.76190476190476,0.00020455989997572032
+tanaka_dup,0.8,3-7-18,tanaka_restricted_duplicate_1.01,10,10,6.6,6,10,100.0,0.0,0.0
+tanaka_dup,0.8,4-6-20,greedy,10,10,11.2,6,17,0.0,13.722943722943722,0.00011907199996130657
+tanaka_dup,0.8,4-6-20,tanaka_restricted_duplicate_1.01,10,10,9.8,5,14,100.0,0.0,0.0
+zhu,,3-6-15,greedy,10,10,6.4,3,8,0.0,9.523809523809522,0.0002961948998745356
+zhu,,3-6-15,tanaka_restricted_distinct_1.3,10,10,5.9,3,8,100.0,1.6666666666666665,0.0
+zhu,,3-6-15,tanaka_unrestricted_distinct_1.01,10,10,5.8,3,8,100.0,0.0,0.0
+zhu,,3-7-18,greedy,10,10,7.7,6,10,0.0,16.785714285714285,0.00016499910007041762
+zhu,,3-7-18,tanaka_restricted_distinct_1.3,10,10,6.9,6,10,100.0,4.166666666666666,0.0
+zhu,,3-7-18,tanaka_unrestricted_distinct_1.01,10,10,6.6,6,8,100.0,0.0,0.0
+zhu,,4-6-20,greedy,10,10,11.4,6,17,0.0,17.938034188034187,0.0001360696999654465
+zhu,,4-6-20,tanaka_restricted_distinct_1.3,10,10,10.1,5,15,100.0,4.899572649572649,0.0
+zhu,,4-6-20,tanaka_unrestricted_distinct_1.01,10,10,9.6,5,13,100.0,0.0,0.0

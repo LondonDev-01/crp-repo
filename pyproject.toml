@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "brpbench"
+version = "0.1.0"
+description = "Benchmark library and results site for the Block / Container Relocation Problem"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+dependencies = []
+
+[project.scripts]
+brpbench-run = "brpbench.run:main"
+brpbench-site = "brpbench.site:main"
+
+[tool.setuptools]
+packages = ["brpbench", "brpbench.solvers"]

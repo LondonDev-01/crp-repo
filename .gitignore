@@ -1,0 +1,20 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+build/
+.atl/
+
+# native build artifacts
+*.o
+solvers/**/brp_bb
+solvers/**/rbrp_bb
+solvers/**/ubrp_bb
+solvers/**/rbrp_ip
+solvers/**/main-solve
+
+# generated / large artifacts
+solvers/bin/
+instances/*
+!instances/.gitkeep
+results/*.tmp
