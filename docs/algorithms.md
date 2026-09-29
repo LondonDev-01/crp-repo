@@ -40,7 +40,7 @@ relocation problem: a systematic review and bibliometric analysis*.
 | method | reference | variant | obj | availability |
 |---|---|---|---|---|
 | Depth-first B&B + DP | Kim & Hong (2006) | rBRP | R | literature |
-| IDA* (LB1/LB2/LB3) | Zhu, Qin, Lim & Zhang (2012) | rBRP | R | `KeelyXu/IDA-STAR-for-CRP` (Python) |
+| IDA* (LB1/LB2/LB3) | Zhu, Qin, Lim & Zhang (2012) | r/uBRP | R | **integrated** (`zhu_restricted_distinct_ida_2012`, `zhu_unrestricted_distinct_ida_2012`; reimplemented from the paper, not vendored) |
 | B&B | Tanaka & Takii (2016) | rBRP, distinct | R | **integrated** (`tanaka_restricted_distinct_1.11`) |
 | B&B | Tanaka & Takii (2016) | rBRP, dup | R | **integrated** (`tanaka_restricted_duplicate_1.01`) |
 | B&B | Tanaka & Mizuno (2018) | uBRP, distinct | R | **integrated** (`tanaka_unrestricted_distinct_1.01`) |
@@ -112,8 +112,9 @@ none of the standard instance sets carry energy data. See `docs/multiobjective.m
 2. **Heuristics with broad coverage**: Beham et al. methods above (one binary,
    many `-m` methods) give ~10 heuristics in a single integration.
 3. **Java**: `jinboszu/crp-glah`, `jinboszu/ucrp-java`, `rubenlej/block-relocation-problem`.
-4. **Python**: `KeelyXu/IDA-STAR-for-CRP`, `jivancevic/cgp-block-relocation-problem`,
-   `jiholee255/ACO_BRP` (no license — keep external, do not vendor).
+4. **Python**: `jivancevic/cgp-block-relocation-problem`, `jiholee255/ACO_BRP`
+   (no license — keep external, do not vendor). IDA\* was reimplemented from the
+   paper instead of vendoring `KeelyXu/IDA-STAR-for-CRP` (unlicensed).
 5. **Multi-objective**: define the objective model, then implement Pareto-capable
    solvers (NSGA-II style) on top of the relocation machinery.
 

@@ -59,7 +59,13 @@ Vendored from their authors (see `solvers/README.md` and each source header):
 | `jin_tanaka_restricted_distinct_jt23` | Jin & Tanaka (2023) | restricted, distinct |
 | `jin_tanaka_unrestricted_distinct_jt23` | Jin & Tanaka (2023) | unrestricted, duplicate |
 | `tanaka_restricted_duplicate_1.02` | Tanaka & Takii (2016) | restricted, group |
+| `zhu_restricted_distinct_ida_2012` | Zhu et al. (2012) | restricted, distinct |
+| `zhu_unrestricted_distinct_ida_2012` | Zhu et al. (2012) | unrestricted, distinct |
 | `greedy` | this repo | constructive baseline (all datasets) |
+
+The two `zhu_*` IDA\* solvers are an independent pure-Python reimplementation of
+the paper (see `brpbench/solvers/ida_star.py`), like `greedy`; the remaining
+solvers are vendored native binaries.
 
 A full inventory of state-of-the-art algorithms (exact, heuristic, metaheuristic,
 learning, multi-objective) with integration status lives in

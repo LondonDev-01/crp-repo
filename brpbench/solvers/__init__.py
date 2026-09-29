@@ -7,6 +7,7 @@ from typing import Dict, List
 
 from .base import SolveOutcome, Solver
 from .greedy import GreedySolver
+from .ida_star import ZhuIdaStarSolver
 from .tanaka import TanakaSolver
 from .ucrp import JinTanakaSolver
 
@@ -59,6 +60,23 @@ JIN_TANAKA_SPECS = [
     },
 ]
 
+ZHU_IDA_STAR_SPECS = [
+    {
+        "name": "zhu_restricted_distinct_ida_2012",
+        "restricted": True,
+        "lower_bound": "LB3",
+        "probe": "PR3",
+        "description": "Zhu et al. (2012) exact restricted CRP via IDA*, distinct priorities",
+    },
+    {
+        "name": "zhu_unrestricted_distinct_ida_2012",
+        "restricted": False,
+        "lower_bound": "LB1",
+        "probe": "PR3",
+        "description": "Zhu et al. (2012) exact unrestricted CRP via IDA*, distinct priorities",
+    },
+]
+
 
 def build_registry() -> Dict[str, Solver]:
     registry: Dict[str, Solver] = {"greedy": GreedySolver()}
@@ -77,6 +95,14 @@ def build_registry() -> Dict[str, Solver]:
             priority_kind=spec["priority_kind"],
             description=spec["description"],
         )
+    for spec in ZHU_IDA_STAR_SPECS:
+        registry[spec["name"]] = ZhuIdaStarSolver(
+            name=spec["name"],
+            restricted=spec["restricted"],
+            lower_bound=spec["lower_bound"],
+            probe=spec["probe"],
+            description=spec["description"],
+        )
     return registry
 
 
@@ -88,6 +114,7 @@ __all__ = [
     "SolveOutcome",
     "Solver",
     "GreedySolver",
+    "ZhuIdaStarSolver",
     "TanakaSolver",
     "JinTanakaSolver",
     "build_registry",
